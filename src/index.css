@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  min-width: 320px;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.review-card {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 40px 35px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo */
+
+.logo-circle {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 20px;
+  background: #fff4d6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+}
+
+/* Headings */
+
+.review-card h1 {
+  font-size: 28px;
+  color: #1f2937;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+/* Stars */
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.star {
+  border: none;
+  background: transparent;
+  font-size: 45px;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: 0.2s;
+  padding: 0;
+}
+
+.star:hover {
+  transform: scale(1.15);
+}
+
+.star.active {
+  color: #fbbf24;
+}
+
+.rating-text {
+  min-height: 24px;
+  color: #4b5563;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+/* Buttons */
+
+.continue-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.continue-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.continue-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Back button */
+
+.back-btn {
+  display: block;
+  background: transparent;
+  border: none;
+  color: #2563eb;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+/* Feedback */
+
+.feedback-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.feedback-option {
+  padding: 12px 16px;
+  border-radius: 25px;
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.feedback-option:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.feedback-option.selected {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.selected-count {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Review Box */
+
+.review-box {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 25px 0;
+  text-align: left;
+}
+
+.review-stars {
+  color: #fbbf24;
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.review-box p {
+  color: #374151;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Copy Button */
+
+.copy-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #111827;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 12px;
+}
+
+.copy-btn:hover {
+  background: #374151;
+  transform: translateY(-2px);
+}
+
+.copy-btn.copied {
+  background: #16a34a;
+}
+
+/* Google Button */
+
+.google-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #4285f4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 12px;
+}
+
+.google-btn:hover {
+  background: #3367d6;
+  transform: translateY(-2px);
+}
+
+/* Google Help */
+
+.google-help {
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 5px 0 15px;
+}
+
+/* Restart */
+
+.restart-btn {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: white;
+  color: #374151;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.restart-btn:hover {
+  background: #f3f4f6;
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+  .app {
+    min-height: 100vh;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .review-card {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  .review-card h1 {
+    font-size: 23px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .logo-circle {
+    width: 65px;
+    height: 65px;
+    font-size: 32px;
+  }
+
+  .stars {
+    gap: 2px;
+  }
+
+  .star {
+    font-size: 38px;
+  }
+
+  .feedback-option {
+    font-size: 13px;
+    padding: 10px 13px;
+  }
+
+  .review-box {
+    padding: 16px;
+  }
+
+  .review-box p {
+    font-size: 14px;
+  }
+
+  .copy-btn,
+  .google-btn,
+  .continue-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Very Small Phones */
+
+@media (max-width: 360px) {
+
+  .app {
+    padding: 10px;
+  }
+
+  .review-card {
+    padding: 25px 15px;
+  }
+
+  .review-card h1 {
+    font-size: 21px;
+  }
+
+  .star {
+    font-size: 34px;
+  }
+
+  .feedback-option {
+    font-size: 12px;
+    padding: 9px 11px;
+  }
+}
+.hotel-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
