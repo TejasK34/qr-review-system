@@ -1,304 +1,651 @@
+/* =========================================
+   HOTEL RAJDHANI DELUXE
+   LUXURY REVIEW PAGE
+========================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --deep-green: #0b2a22;
+  --green: #123d31;
+  --gold: #c9a24d;
+  --light-gold: #e5c878;
+  --cream: #f8f3e7;
+  --soft-cream: #fffdf8;
+  --dark-text: #18332b;
+  --muted: #6d746f;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
+  font-family: "Segoe UI", Arial, sans-serif;
   min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(201, 162, 77, 0.15),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(201, 162, 77, 0.12),
+      transparent 25%
+    ),
+    var(--deep-green);
 }
 
 button {
   font-family: inherit;
 }
 
+/* =========================================
+   MAIN APP
+========================================= */
+
 .app {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
+
+/* =========================================
+   LUXURY CARD
+========================================= */
 
 .review-card {
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  background: white;
-  padding: 40px 35px;
-  border-radius: 24px;
+  max-width: 540px;
+  padding: 42px 40px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 243, 231, 0.98)
+    );
+  border-radius: 28px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+  border: 2px solid var(--gold);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    0 0 0 7px rgba(201, 162, 77, 0.08);
+
+  overflow: hidden;
 }
 
-/* Logo */
+/* Luxury top line */
+
+.review-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background:
+    linear-gradient(
+      90deg,
+      var(--deep-green),
+      var(--gold),
+      var(--light-gold),
+      var(--gold),
+      var(--deep-green)
+    );
+}
+
+/* =========================================
+   HOTEL NAME
+========================================= */
+
+.hotel-name {
+  margin-top: 5px;
+  margin-bottom: 20px;
+
+  color: var(--green);
+
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   LOGO
+========================================= */
 
 .logo-circle {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto 20px;
-  background: #fff4d6;
-  border-radius: 50%;
+  width: 86px;
+  height: 86px;
+
+  margin: 0 auto 22px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 38px;
+
+  background:
+    radial-gradient(
+      circle,
+      #174638,
+      var(--deep-green)
+    );
+
+  border-radius: 50%;
+
+  border: 3px solid var(--gold);
+
+  box-shadow:
+    0 0 0 6px rgba(201, 162, 77, 0.12),
+    0 10px 25px rgba(0, 0, 0, 0.2);
+
+  font-size: 40px;
 }
 
-/* Headings */
+/* =========================================
+   HEADINGS
+========================================= */
 
 .review-card h1 {
-  font-size: 28px;
-  color: #1f2937;
-  margin-bottom: 10px;
-  line-height: 1.3;
+  color: var(--dark-text);
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 31px;
+  line-height: 1.25;
+
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  color: #6b7280;
+  color: var(--muted);
+
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
+
   margin-bottom: 30px;
 }
 
-/* Stars */
+/* =========================================
+   STARS
+========================================= */
 
 .stars {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 20px;
+  gap: 7px;
+
+  margin: 10px 0 18px;
 }
 
 .star {
   border: none;
   background: transparent;
-  font-size: 45px;
-  color: #d1d5db;
+
+  color: #d7d5cf;
+
+  font-size: 50px;
+  line-height: 1;
+
   cursor: pointer;
-  transition: 0.2s;
-  padding: 0;
+
+  padding: 2px;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    filter 0.25s ease;
 }
 
 .star:hover {
-  transform: scale(1.15);
+  transform: translateY(-5px) scale(1.12);
+
+  color: var(--gold);
+
+  filter:
+    drop-shadow(
+      0 4px 5px
+      rgba(201, 162, 77, 0.35)
+    );
 }
 
 .star.active {
-  color: #fbbf24;
+  color: var(--gold);
+
+  filter:
+    drop-shadow(
+      0 3px 4px
+      rgba(201, 162, 77, 0.35)
+    );
 }
+
+/* =========================================
+   RATING MESSAGE
+========================================= */
 
 .rating-text {
   min-height: 24px;
-  color: #4b5563;
+
+  color: var(--green);
+
   font-size: 15px;
-  margin-bottom: 25px;
+  font-weight: 600;
+
+  margin-bottom: 27px;
 }
 
-/* Buttons */
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
 
 .continue-btn {
   width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 12px;
-  background: #2563eb;
-  color: white;
+
+  padding: 16px 20px;
+
+  border: 2px solid var(--gold);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--deep-green),
+      var(--green)
+    );
+
+  color: var(--cream);
+
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  box-shadow:
+    0 8px 20px
+    rgba(11, 42, 34, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .continue-btn:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(11, 42, 34, 0.35);
+}
+
+.continue-btn:active {
+  transform: translateY(0);
 }
 
 .continue-btn:disabled {
-  background: #d1d5db;
+  background: #d7d5cf;
+
+  border-color: #d7d5cf;
+
+  color: #888;
+
   cursor: not-allowed;
+
+  box-shadow: none;
+
   transform: none;
 }
 
-/* Back button */
+/* =========================================
+   BACK BUTTON
+========================================= */
 
 .back-btn {
   display: block;
+
   background: transparent;
+
   border: none;
-  color: #2563eb;
+
+  color: var(--green);
+
   font-size: 15px;
+  font-weight: 600;
+
   cursor: pointer;
-  margin-bottom: 20px;
+
+  margin-bottom: 22px;
+
+  transition: color 0.2s ease;
 }
 
-/* Feedback */
+.back-btn:hover {
+  color: var(--gold);
+}
+
+/* =========================================
+   FEEDBACK GRID
+========================================= */
 
 .feedback-grid {
   display: flex;
+
   flex-wrap: wrap;
+
   justify-content: center;
-  gap: 10px;
+
+  gap: 11px;
+
   margin: 25px 0;
 }
 
+/* Feedback option */
+
 .feedback-option {
-  padding: 12px 16px;
-  border-radius: 25px;
-  border: 1px solid #d1d5db;
-  background: white;
-  color: #374151;
+  padding: 12px 17px;
+
+  border-radius: 30px;
+
+  border: 1.5px solid #d8cda9;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  color: var(--dark-text);
+
   font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
-  transition: 0.2s;
+
+  transition:
+    all 0.25s ease;
 }
 
 .feedback-option:hover {
-  border-color: #2563eb;
+  border-color: var(--gold);
+
+  color: var(--green);
+
   transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 14px
+    rgba(201, 162, 77, 0.18);
 }
 
 .feedback-option.selected {
-  background: #2563eb;
-  color: white;
-  border-color: #2563eb;
+  background:
+    linear-gradient(
+      135deg,
+      var(--deep-green),
+      var(--green)
+    );
+
+  color: var(--cream);
+
+  border-color: var(--gold);
+
+  box-shadow:
+    0 5px 15px
+    rgba(11, 42, 34, 0.25);
 }
 
+/* =========================================
+   SELECTED COUNT
+========================================= */
+
 .selected-count {
-  color: #6b7280;
-  font-size: 14px;
+  color: var(--muted);
+
+  font-size: 13px;
+
   margin-bottom: 20px;
 }
 
-/* Review Box */
+/* =========================================
+   REVIEW BOX
+========================================= */
 
 .review-box {
-  background: #f8fafc;
-  border: 1px solid #e5e7eb;
-  border-radius: 15px;
-  padding: 20px;
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf8,
+      #f3ead7
+    );
+
+  border: 1.5px solid var(--gold);
+
+  border-radius: 18px;
+
+  padding: 24px;
+
   margin: 25px 0;
+
   text-align: left;
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(201, 162, 77, 0.08);
+}
+
+/* Decorative top line */
+
+.review-box::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 5px;
+  left: 15px;
+
+  color: var(--gold);
+
+  font-family: Georgia, serif;
+
+  font-size: 50px;
+
+  opacity: 0.35;
 }
 
 .review-stars {
-  color: #fbbf24;
-  font-size: 24px;
+  color: var(--gold);
+
+  font-size: 25px;
+
   margin-bottom: 15px;
+
   text-align: center;
-  letter-spacing: 3px;
+
+  letter-spacing: 4px;
 }
 
 .review-box p {
-  color: #374151;
+  color: #37443f;
+
   font-size: 15px;
-  line-height: 1.7;
+
+  line-height: 1.8;
 }
 
-/* Copy Button */
+/* =========================================
+   COPY BUTTON
+========================================= */
 
 .copy-btn {
   width: 100%;
+
   padding: 16px;
-  border: none;
-  border-radius: 12px;
-  background: #111827;
-  color: white;
+
+  border: 1.5px solid var(--gold);
+
+  border-radius: 14px;
+
+  background: var(--cream);
+
+  color: var(--green);
+
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: all 0.25s ease;
+
   margin-bottom: 12px;
 }
 
 .copy-btn:hover {
-  background: #374151;
+  background: #f0e3c3;
+
   transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(201, 162, 77, 0.2);
 }
 
 .copy-btn.copied {
-  background: #16a34a;
+  background: var(--green);
+
+  color: var(--cream);
+
+  border-color: var(--green);
 }
 
-/* Google Button */
+/* =========================================
+   GOOGLE BUTTON
+========================================= */
 
 .google-btn {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  background: #4285f4;
+
+  padding: 17px;
+
+  border: 2px solid var(--gold);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--deep-green),
+      #174c3b
+    );
+
   color: white;
+
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: all 0.25s ease;
+
   margin-bottom: 12px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(11, 42, 34, 0.25);
 }
 
 .google-btn:hover {
-  background: #3367d6;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(11, 42, 34, 0.35);
 }
 
-/* Google Help */
+/* =========================================
+   GOOGLE HELP
+========================================= */
 
 .google-help {
-  color: #6b7280;
+  color: var(--muted);
+
   font-size: 12px;
+
   line-height: 1.5;
-  margin: 5px 0 15px;
+
+  margin: 6px 0 18px;
 }
 
-/* Restart */
+/* =========================================
+   RESTART BUTTON
+========================================= */
 
 .restart-btn {
   width: 100%;
+
   padding: 13px;
-  border: 1px solid #d1d5db;
+
+  border: 1px solid #d8cda9;
+
   border-radius: 12px;
-  background: white;
-  color: #374151;
-  font-size: 15px;
+
+  background: transparent;
+
+  color: var(--green);
+
+  font-size: 14px;
+
   cursor: pointer;
+
+  transition: all 0.2s ease;
 }
 
 .restart-btn:hover {
-  background: #f3f4f6;
+  background: rgba(201, 162, 77, 0.08);
+
+  border-color: var(--gold);
 }
 
-/* ========================= */
-/* MOBILE RESPONSIVE */
-/* ========================= */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 600px) {
 
   .app {
-    min-height: 100vh;
-    padding: 15px;
-    align-items: center;
+    padding: 20px 12px;
   }
 
   .review-card {
-    padding: 30px 20px;
-    border-radius: 20px;
+    padding: 35px 22px;
+
+    border-radius: 22px;
+  }
+
+  .hotel-name {
+    font-size: 15px;
+
+    letter-spacing: 1.5px;
+  }
+
+  .logo-circle {
+    width: 72px;
+    height: 72px;
+
+    font-size: 32px;
   }
 
   .review-card h1 {
-    font-size: 23px;
+    font-size: 25px;
   }
 
   .subtitle {
     font-size: 14px;
-    margin-bottom: 25px;
-  }
-
-  .logo-circle {
-    width: 65px;
-    height: 65px;
-    font-size: 32px;
   }
 
   .stars {
@@ -306,16 +653,17 @@ button {
   }
 
   .star {
-    font-size: 38px;
+    font-size: 42px;
   }
 
   .feedback-option {
     font-size: 13px;
+
     padding: 10px 13px;
   }
 
   .review-box {
-    padding: 16px;
+    padding: 20px 17px;
   }
 
   .review-box p {
@@ -325,40 +673,41 @@ button {
   .copy-btn,
   .google-btn,
   .continue-btn {
-    padding: 14px;
+    padding: 15px;
+
     font-size: 15px;
   }
 }
 
-/* Very Small Phones */
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
 
 @media (max-width: 360px) {
 
   .app {
-    padding: 10px;
+    padding: 12px 8px;
   }
 
   .review-card {
-    padding: 25px 15px;
+    padding: 30px 16px;
+  }
+
+  .hotel-name {
+    font-size: 13px;
   }
 
   .review-card h1 {
-    font-size: 21px;
+    font-size: 22px;
   }
 
   .star {
-    font-size: 34px;
+    font-size: 36px;
   }
 
   .feedback-option {
     font-size: 12px;
+
     padding: 9px 11px;
   }
-}
-.hotel-name {
-  font-size: 16px;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
 }
