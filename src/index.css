@@ -711,3 +711,28 @@ button {
     padding: 9px 11px;
   }
 }
+/* =======================================
+   Developer Credit
+======================================= */
+
+.developer-credit {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  text-align: center;
+}
+
+.developer-credit p {
+  color: #8c8c8c;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.developer-credit h4 {
+  color: #b08d57;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Georgia, serif;
+}

@@ -354,7 +354,7 @@ function App() {
               open Google and paste it.
             </p>
 
-            <button
+                        <button
               className="restart-btn"
               onClick={startAgain}
             >
@@ -362,6 +362,12 @@ function App() {
             </button>
           </>
         )}
+
+        {/* Developer Credit */}
+        <div className="developer-credit">
+          <p>Designed & Developed by</p>
+          <h4>Tejas Kumbhkarn</h4>
+        </div>
 
       </div>
 
